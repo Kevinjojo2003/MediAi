@@ -1,2 +1,1 @@
-# MediAi
-A Medical Reporter analyzer using Langchain
+# Project Documentation
