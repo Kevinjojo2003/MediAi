@@ -7,7 +7,7 @@ sentencepiece
 pdfplumber
 pytesseract
 Pillow
-opencv-python
+opencv-python-headless
 matplotlib
 numpy
 huggingface-hub
