@@ -1,3 +1,9 @@
+import asyncio
+import sys
+
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
 import streamlit as st
 import os
 from utils import (
@@ -6,6 +12,7 @@ from utils import (
     medical_chatbot,
     analyze_medical_image
 )
+
 
 # 📁 Ensure the uploads directory exists
 UPLOADS_DIR = "uploads"
