@@ -1,90 +1,53 @@
-# **🩺 Medical Report Analyzer**  
-🚀 AI-powered medical report and image analysis tool with chatbot support.
-To see the Live Demo https://mediai.streamlit.app/
----
+Medical Report Analyzer
+AI-powered tool for analyzing medical reports, segmenting medical images, and interacting with a healthcare chatbot.
 
-## **📌 Features**  
-✅ **Medical Report Analysis** – Extracts and analyzes text from PDFs & images.  
-✅ **AI-Powered NLP** – Uses Hugging Face models for medical text analysis.  
-✅ **Medical Image Segmentation** – Analyzes X-rays, MRIs, and CT scans with AI.  
-✅ **Interactive Chatbot** – Provides medical insights using AI models.  
-✅ **Graph Generation** – Visualizes lab results with automated graphs.  
+Live Demo: https://mediai.streamlit.app
 
----
+Key Features
+Medical Report Analysis
+Upload PDF or image-based medical reports and extract insights using advanced NLP models.
 
-## **📂 Project Structure**  
+AI-Powered Text Understanding
+Uses Hugging Face's BioBERT and Gemini AI to analyze and interpret medical terminology.
+
+Medical Image Segmentation
+Automatically segments and highlights relevant areas in X-rays, MRIs, and CT scans using the SAM model.
+
+Interactive Medical Chatbot
+Ask questions about symptoms, conditions, and treatments. The chatbot provides AI-generated responses.
+
+Lab Report Visualization
+Automatically generates bar graphs to visualize lab test values and compare them against normal ranges.
+
 
 Medical-Report-Analyzer/
-│── uploads/                 # Directory for uploaded files
-│── app.py                   # Main Streamlit application
-│── utils.py                  # Utility functions (NLP, OCR, image processing)
-│── requirements.txt          # Dependencies for the project
-│── README.md                 # Project documentation (this file)
-└── .gitignore                # Ignore unnecessary files
+│
+├── uploads/               # Stores uploaded files
+├── app.py                 # Main Streamlit application
+├── utils.py               # NLP, OCR, image segmentation, chatbot logic
+├── requirements.txt       # Python dependencies
+├── README.md              # Project documentation
+└── .gitignore             # File exclusions for Git
 
+How to Use
+Report Analysis
+Upload a medical report (PDF or image).
 
----
+The system extracts text using OCR or PDF parsers.
 
-## **🚀 Installation & Setup**  
+NLP models analyze the content and display medical insights.
 
-### **1️⃣ Clone the Repository**  
-```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/Medical-Report-Analyzer.git
-cd Medical-Report-Analyzer
+Optional: Generate graphs for lab report values.
 
-```
-### **2️⃣ Create a Virtual Environment (Optional but Recommended)**
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate     # On Windows
+Image Analysis
+Upload an X-ray, MRI, or CT image.
 
-### **3️⃣ Install Dependencies**  
+The image is processed and segmented using the SAM model.
 
-pip install -r requirements.txt
+View the output with highlighted medical regions.
 
-### **4️⃣ Run the Application
+Medical Chatbot
+Ask a question (e.g., "What are the symptoms of asthma?").
 
-streamlit run app.py
-
-📊 Usage Guide
-📄 Medical Report Analysis
-1️⃣ Upload a PDF or Image of a medical report.
-2️⃣ AI extracts and analyzes the report using Hugging Face models.
-3️⃣ View the medical insights and lab result graphs.
-
-🖼 Medical Image Analysis
-1️⃣ Upload an X-ray, MRI, or CT scan image.
-2️⃣ AI processes and segments the medical image.
-3️⃣ View the segmented medical image.
-
-💬 Medical Chatbot
-1️⃣ Type a medical question (e.g., "What are the symptoms of diabetes?").
-2️⃣ AI provides relevant medical insights.
-
-📌 Technologies Used
-Python – Backend logic
-
-Streamlit – UI & frontend
-
-LangChain – AI-powered text processing
-
-Hugging Face Transformers – NLP & medical text analysis
-
-Segment Anything Model (SAM) – Medical image segmentation
-
-Google Gemini AI – Chatbot & advanced medical analysis
-
-🔧 Future Improvements
-✅ Add support for DICOM images
-✅ Improve AI chatbot for diagnosis
-✅ Implement database support for saving reports
-
-🤝 Contributing
-🔹 Fork the repo & submit pull requests.
-🔹 Report bugs & request features via Issues.
-
-📜 License
-This project is open-source under the MIT License.
-
-
+The AI provides an evidence-based response using Gemini.
 
