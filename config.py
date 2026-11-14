@@ -7,5 +7,17 @@ try:
 except ImportError:  # python-dotenv is optional; plain environment variables still work
     pass
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN", "")
+def _get(name):
+    """Environment variable first, then Streamlit secrets (used on Streamlit Cloud)."""
+    value = os.getenv(name)
+    if value:
+        return value
+    try:
+        import streamlit as st
+        return st.secrets.get(name, "")
+    except Exception:
+        return ""
+
+
+GEMINI_API_KEY = _get("GEMINI_API_KEY")
+HUGGINGFACE_TOKEN = _get("HUGGINGFACE_TOKEN")

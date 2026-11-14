@@ -15,10 +15,13 @@ from config import HUGGINGFACE_TOKEN, GEMINI_API_KEY
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Tesseract-OCR path for Windows
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# On Windows, point pytesseract at the default install; on Linux/macOS it uses the system `tesseract`.
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD", r"C:\Program Files\Tesseract-OCR\tesseract.exe")
 
 # Model paths
-MODEL_DIR = "C:/Users/KEVIN JOJO/Desktop/workcohol/Medical-Report-Analyzer/models/"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.getenv("MODEL_DIR", os.path.join(BASE_DIR, "models"))
 BIOBERT_MODEL = os.path.join(MODEL_DIR, "biobert")
 LAYOUTLM_MODEL = os.path.join(MODEL_DIR, "layoutlmv3")
 SAM_CHECKPOINT_PATH = os.path.join(MODEL_DIR, "sam_vit_h_4b8939.pth")
@@ -42,7 +45,7 @@ except Exception as e:
     sam_predictor = None
 
 # Prompt directory
-PROMPT_DIR = "C:/Users/KEVIN JOJO/Desktop/workcohol/Medical-Report-Analyzer/prompts/"
+PROMPT_DIR = os.path.join(BASE_DIR, "prompts")
 
 def load_prompt(file_name):
     """Load a prompt text file."""

@@ -63,3 +63,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 `uploads/` is created at runtime and is git-ignored. Do not upload real patient data to a shared deployment. This tool is for education and is not medical advice.
+
+## Deployment notes
+- `packages.txt` installs Tesseract for Streamlit Cloud. Add `GEMINI_API_KEY` and `HUGGINGFACE_TOKEN` under **Settings > Secrets**.
+- The optional image-segmentation step needs the SAM checkpoint `sam_vit_h_4b8939.pth` (about 2.4 GB) in `models/` or at `MODEL_DIR`. It is not in this repo. Without it, the app still runs and skips segmentation.
+- The full dependency set (PyTorch, Transformers, SAM) is heavy. Streamlit Community Cloud's free tier has about 1 GB of memory, so a Hugging Face Space or the included `Dockerfile` on a larger host is a better fit.
