@@ -1,5 +1,11 @@
-# config.py (DO NOT SHARE PUBLICLY)
-# config.py - Store API keys and sensitive credentials
+"""Runtime configuration. Secrets are read from environment variables (or a local .env file)."""
+import os
 
-GEMINI_API_KEY = "AIzaSyAO8MHOWDyM3vUoN1Q41UW-95mEbKuCOYk"
-HUGGINGFACE_TOKEN = "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"
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:  # python-dotenv is optional; plain environment variables still work
+    pass
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN", "")

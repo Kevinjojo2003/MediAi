@@ -51,3 +51,15 @@ Ask a question (e.g., "What are the symptoms of asthma?").
 
 The AI provides an evidence-based response using Gemini.
 
+
+## Configuration
+API keys are read from environment variables, never from source code. Copy `.env.example` to `.env` and fill in:
+
+```bash
+cp .env.example .env
+# GEMINI_API_KEY=...
+# HUGGINGFACE_TOKEN=...
+pip install -r requirements.txt
+streamlit run app.py
+```
+`uploads/` is created at runtime and is git-ignored. Do not upload real patient data to a shared deployment. This tool is for education and is not medical advice.
